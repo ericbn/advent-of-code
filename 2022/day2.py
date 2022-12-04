@@ -46,9 +46,11 @@ def points_b(opponent, outcome):
 
 puzzle = Puzzle(year=2022, day=2)
 
-rounds = [[Shape[s] for s in line.split()] for line in lines(puzzle.input_data)]
-total_a = sum(points_a(*r) for r in rounds)
-total_b = sum(points_b(*r) for r in rounds)
+total_a = total_b = 0
+for line in lines(puzzle.input_data):
+    r = [Shape[s] for s in line.split()]
+    total_a += points_a(*r)
+    total_b += points_b(*r)
 
 puzzle.answer_a = total_a
 puzzle.answer_b = total_b

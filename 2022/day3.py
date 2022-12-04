@@ -16,13 +16,10 @@ def _priority(item):
 
 puzzle = Puzzle(year=2022, day=3)
 
-sum_priorities_a = sum(
+puzzle.answer_a = sum(
     _priority(_common(set(c) for c in divide(2, r))) for r in lines(puzzle.input_data)
 )
-sum_priorities_b = sum(
+puzzle.answer_b = sum(
     _priority(_common(map(set, c)))
     for c in sliced(lines(puzzle.input_data), 3, strict=True)
 )
-
-puzzle.answer_a = sum_priorities_a
-puzzle.answer_b = sum_priorities_b
