@@ -2,11 +2,12 @@ from functools import reduce
 
 from aocd.models import Puzzle
 from aocd.transforms import lines
-from more_itertools import divide, one, sliced
+from more_itertools import divide, sliced
 
 
 def _common(group):
-    return one(reduce(set.intersection, group))
+    (value,) = reduce(set.intersection, group)
+    return value
 
 
 def _priority(item):

@@ -1,6 +1,7 @@
-from year2022.day2 import points_a, points_b, Shape
-
 import pytest
+
+from day2 import Shape, points_a, points_b
+
 
 @pytest.mark.parametrize(
     ("opponent", "me", "expected"),
@@ -12,6 +13,7 @@ import pytest
 )
 def test_points_a(opponent, me, expected):
     assert points_a(opponent, me) == expected
+
 
 @pytest.mark.parametrize(
     ("opponent", "outcome", "expected"),
