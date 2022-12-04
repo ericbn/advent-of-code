@@ -4,8 +4,6 @@ from aocd.models import Puzzle
 from aocd.transforms import lines
 from bidict import bidict
 
-puzzle = Puzzle(year=2022, day=2)
-
 
 class Shape(Enum):
     ROCK = A = X = 1
@@ -46,9 +44,9 @@ def points_b(opponent, outcome):
     return points_a(opponent, OUTCOMES[outcome][opponent])
 
 
-rounds = [
-    tuple(map(Shape.__getitem__, line.split())) for line in lines(puzzle.input_data)
-]
+puzzle = Puzzle(year=2022, day=2)
+
+rounds = [[Shape[s] for s in line.split()] for line in lines(puzzle.input_data)]
 total_a = sum(points_a(*r) for r in rounds)
 total_b = sum(points_b(*r) for r in rounds)
 
